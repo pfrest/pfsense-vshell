@@ -1,4 +1,4 @@
 black~=25.1.0
-pylint~=3.3.7
+pylint~=3.3.8
 coverage~=7.10.3
 setuptools~=80.9.0
