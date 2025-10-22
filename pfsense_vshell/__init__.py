@@ -308,11 +308,7 @@ class PFClient:
         :return: (none) a new item will be appended to the log property of the object
         """
         date = datetime.datetime.now().astimezone()
-        self.log.append(
-            ",".join(
-                [str(date), self.url(), self.username, event, msg]
-            )
-        )
+        self.log.append(",".join([str(date), self.url(), self.username, event, msg]))
 
 
 class PFError(Exception):
