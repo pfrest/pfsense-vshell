@@ -307,11 +307,8 @@ class PFClient:
         :param msg: (string) a descriptive message detailing the log event
         :return: (none) a new item will be appended to the log property of the object
         """
-        self.log.append(
-            ",".join(
-                [str(datetime.datetime.utcnow()), self.url(), self.username, event, msg]
-            )
-        )
+        date = datetime.datetime.now().astimezone()
+        self.log.append(",".join([str(date), self.url(), self.username, event, msg]))
 
 
 class PFError(Exception):
