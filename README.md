@@ -1,13 +1,14 @@
+# pfSense vShell
+
 [![Quality](https://github.com/jaredhendrickson13/pfsense-vshell/actions/workflows/quality.yml/badge.svg)](https://github.com/jaredhendrickson13/pfsense-vshell/actions/workflows/quality.yml)
 [![Release](https://github.com/jaredhendrickson13/pfsense-vshell/actions/workflows/release.yml/badge.svg)](https://github.com/jaredhendrickson13/pfsense-vshell/actions/workflows/release.yml)
 [![CodeQL](https://github.com/jaredhendrickson13/pfsense-vshell/actions/workflows/codeql.yml/badge.svg)](https://github.com/jaredhendrickson13/pfsense-vshell/actions/workflows/codeql.yml)
 
-# Introduction
 pfSense vShell is a command line tool and Python module that enables users to remotely enter shell commands on a pfSense
 host without enabling `sshd`. This allows administrators to automate installation of packages, enable `sshd`, and make other backend
 changes out of the box.
 
-# Installation
+## Installation
 pfSense vShell requires Python3/Pip3 for installation<br>
 
 To install:<br>
@@ -16,9 +17,9 @@ To install:<br>
 To uninstall:<br>
 `pip uninstall pfsense-vshell`
 
-# Command Line
+## Command Line
 
-## Usage & Syntax
+### Usage & Syntax
 ```
 usage: pfsense-vshell [-h] --host HOST [--virtual_shell] [--command COMMAND] --username USERNAME [--password PASSWORD] [--scheme {http,https}] [--port PORT] [--timeout TIMEOUT] [--shell_timeout SHELL_TIMEOUT] [--no_verify] [--version] [--verbose]
 ```
@@ -39,7 +40,7 @@ usage: pfsense-vshell [-h] --host HOST [--virtual_shell] [--command COMMAND] --u
 | --shell_timeout | -z        | No                                    | Set the virtual shell session timeout value (in seconds). Only available with --virtual_shell. | --shell_timeout TIMEOUT |
 | --verbose       | -v        | No                                    | Enable verbose logging                                                                         | --verbose               |
 
-## Examples
+### Examples
 Below are some examples of common use cases for pfsense-vshell:<br>
 
 1: Run a single shell command (with inline authentication)
@@ -72,7 +73,7 @@ $ pfsense-vshell --version
 pfsense-vshell v2.0.3
 ```
 
-## Notes
+### Notes
 - When using `--virtual_shell`, you may enter the command `history` to display commands executed since the virtual shell
 session started.
 - Interactive commands cannot be run within pfSense vShell, there is no way to add additional input after you have run 
@@ -83,10 +84,10 @@ Any file interaction will be relative to this directory if not absolute.
 - By default, any command run within pfSense vShell has root access. There is no way to change this so be careful.
 - Your pfSense user must have access to the Diagnostics > Command Prompt page within the webConfigurator.
 
-# Python3 Module
+## Python3 Module
 After installing the package, the `pfsense_vshell` module will also be made available to your Python3 scripts.
 
-## Classes
+### Classes
 ```
 PFClient(host, username, password, port=443, scheme='https', timeout=30, verify=True)
 :   Initializes the object at creation
@@ -183,7 +184,7 @@ PFError(code, message)
     * builtins.BaseException
 ```
 
-## Examples
+### Examples
 ```python
 import pfsense_vshell
 
